@@ -7,7 +7,8 @@ import java.awt.event.*;
 public class CCouleurFrame
     extends JFrame {
  
-  JColorChooser chooser = new JColorChooser();
+	private static final long serialVersionUID = 1L;
+JColorChooser chooser = new JColorChooser();
  
   public CCouleurFrame() {
     chooser.addChooserPanel(new MyChooserPanel());
@@ -29,7 +30,9 @@ public class CCouleurFrame
  
 class MyChooserPanel
     extends AbstractColorChooserPanel {
-  // These are the methods that must be implemented
+	private static final long serialVersionUID = 1L;
+
+// These are the methods that must be implemented
   // in order to create a color chooser panel.
  
   // This is called once to initialize the panel.
@@ -74,7 +77,9 @@ class MyChooserPanel
   // This action takes the background color of the button
   // and uses it to set the selected color.
   Action setColorAction = new AbstractAction() {
-    public void actionPerformed(ActionEvent evt) {
+	private static final long serialVersionUID = 1L;
+
+	public void actionPerformed(ActionEvent evt) {
       JButton button = (JButton) evt.getSource();
  
       getColorSelectionModel().setSelectedColor(button.getBackground());

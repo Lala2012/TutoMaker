@@ -2,12 +2,12 @@ package fr.Lala2012;
 
 import java.awt.Color;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class GuiButton extends JButton {
 	
+	private static final long serialVersionUID = 1L;
+
 	public enum ButtonType{
 		ERROR,
 		WARNING, 
@@ -15,6 +15,7 @@ public class GuiButton extends JButton {
 		SUBMIT,
 		DEFAULT;		
 	}
+	
 	
 	public GuiButton(String title, ButtonType type)
 	{

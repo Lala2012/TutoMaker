@@ -14,6 +14,13 @@ import javax.swing.JFileChooser;
 
 public class Util {
 
+	/**
+	 * Remplace les balises BBCode par des balises HTML.
+	 * 
+	 * @param text
+	 *            Texte contenant des balises BBCode
+	 * @return le texte contenant des balises HTML
+	 */
 	public static String bbcode(String text) {
 		String html = text.replace("\n".toString(), "<br />");
 
@@ -56,7 +63,7 @@ public class Util {
 		bbMap.put("\\[code\\](.+?)\\[/code\\]",
 				"<pre class=\"prettyprint lang-auto linenums:0\">$1</pre>");
 
-		for (Map.Entry entry : bbMap.entrySet()) {
+		for (@SuppressWarnings("rawtypes") Map.Entry entry : bbMap.entrySet()) {
 			html = html.replaceAll(entry.getKey().toString(), entry.getValue()
 					.toString());
 		}
@@ -64,14 +71,25 @@ public class Util {
 		return html;
 	}
 
-	public static void performChangeSelectedText(int startSelection, int endSelection,
-			Tag type) {
+	/**
+	 * Formatte le texte sélectionné dans la zone de saisie de code.
+	 * 
+	 * @param startSelection
+	 *            Début de la sélection
+	 * @param endSelection
+	 *            Fin de la sélection
+	 * @param type
+	 *            Type de balise à appliquer
+	 */
+	public static void performChangeSelectedText(int startSelection,
+			int endSelection, Tag type) {
 
 		String startStr = TutoMaker.mainFrame.getRedacText().substring(0,
 				startSelection);
 		String endStr = TutoMaker.mainFrame.getRedacText().substring(
 				endSelection, TutoMaker.mainFrame.getRedacText().length());
-		String selected = (TutoMaker.mainFrame.getRedacText().length() > 0) ? TutoMaker.mainFrame.getRedacText() : "";
+		String selected = (TutoMaker.mainFrame.getRedacText().length() > 0) ? TutoMaker.mainFrame
+				.getRedacText() : "";
 
 		switch (type) {
 		case COLOR:
@@ -151,70 +169,105 @@ public class Util {
 		}
 
 	}
-	
-	
-	public static void performColor(int startSelection, int endSelection, String color) {
+
+	/**
+	 * Formatte le texte en couleur.
+	 * 
+	 * @param startSelection
+	 * @param endSelection
+	 * @param color
+	 */
+	public static void performColor(int startSelection, int endSelection,
+			String color) {
 
 		String startStr = TutoMaker.mainFrame.getRedacText().substring(0,
 				startSelection);
 		String endStr = TutoMaker.mainFrame.getRedacText().substring(
 				endSelection, TutoMaker.mainFrame.getRedacText().length());
-		String selected = (TutoMaker.mainFrame.getRedacText().length() > 0) ? TutoMaker.mainFrame.getRedacText() : "";
+		String selected = (TutoMaker.mainFrame.getRedacText().length() > 0) ? TutoMaker.mainFrame
+				.getRedacText() : "";
 
-		TutoMaker.mainFrame.setRedacText(startStr + "[color=" + color + "]" + selected
-					+ "[/color]" + endStr);
-
+		TutoMaker.mainFrame.setRedacText(startStr + "[color=" + color + "]"
+				+ selected + "[/color]" + endStr);
 
 	}
-	
-	public static void performSize(int startSelection, int endSelection, int size) {
+
+	/**
+	 * Formatte la taille du texte.
+	 * 
+	 * @param startSelection
+	 * @param endSelection
+	 * @param size
+	 */
+	public static void performSize(int startSelection, int endSelection,
+			int size) {
 
 		String startStr = TutoMaker.mainFrame.getRedacText().substring(0,
 				startSelection);
 		String endStr = TutoMaker.mainFrame.getRedacText().substring(
 				endSelection, TutoMaker.mainFrame.getRedacText().length());
-		String selected = (TutoMaker.mainFrame.getRedacText().length() > 0) ? TutoMaker.mainFrame.getRedacText() : "";
+		String selected = (TutoMaker.mainFrame.getRedacText().length() > 0) ? TutoMaker.mainFrame
+				.getRedacText() : "";
 
-		TutoMaker.mainFrame.setRedacText(startStr + "[size=" + size + "]" + selected
-					+ "[/size]" + endStr);
-
+		TutoMaker.mainFrame.setRedacText(startStr + "[size=" + size + "]"
+				+ selected + "[/size]" + endStr);
 
 	}
-	
-	public static void performImage(int startSelection, int endSelection, String url) {
+
+	/**
+	 * Insère une image
+	 * 
+	 * @param startSelection
+	 * @param endSelection
+	 * @param url
+	 */
+	public static void performImage(int startSelection, int endSelection,
+			String url) {
 
 		String startStr = TutoMaker.mainFrame.getRedacText().substring(0,
 				startSelection);
 		String endStr = TutoMaker.mainFrame.getRedacText().substring(
 				endSelection, TutoMaker.mainFrame.getRedacText().length());
-		String selected = (TutoMaker.mainFrame.getRedacText().length() > 0) ? TutoMaker.mainFrame.getRedacText() : "";
+		String selected = (TutoMaker.mainFrame.getRedacText().length() > 0) ? TutoMaker.mainFrame
+				.getRedacText() : "";
 
 		TutoMaker.mainFrame.setRedacText(startStr + "[img]" + url + selected
-					+ "[/img]" + endStr);
-
+				+ "[/img]" + endStr);
 
 	}
 
-	
-	
-	public static void performUrl(int startSelection, int endSelection, String url) {
+	/**
+	 * Insère une URL
+	 * 
+	 * @param startSelection
+	 * @param endSelection
+	 * @param url
+	 */
+	public static void performUrl(int startSelection, int endSelection,
+			String url) {
 
 		String startStr = TutoMaker.mainFrame.getRedacText().substring(0,
 				startSelection);
 		String endStr = TutoMaker.mainFrame.getRedacText().substring(
 				endSelection, TutoMaker.mainFrame.getRedacText().length());
-		String selected = (TutoMaker.mainFrame.getRedacText().length() > 0) ? TutoMaker.mainFrame.getRedacText() : "";
+		String selected = (TutoMaker.mainFrame.getRedacText().length() > 0) ? TutoMaker.mainFrame
+				.getRedacText() : "";
 
 		TutoMaker.mainFrame.setRedacText(startStr + "[url]" + url + selected
-					+ "[/url]" + endStr);
-
+				+ "[/url]" + endStr);
 
 	}
 
+	/**
+	 * Ouvre un fichier et actualiser le contenu de la zone de saisie en
+	 * fonction de ce fichier
+	 * 
+	 * 
+	 */
 	public static void openFile() {
 
 		JFileChooser chooser = new JFileChooser();
-	
+
 		int returnVal = chooser.showOpenDialog(TutoMaker.mainFrame
 				.getContentPane());
 
@@ -257,6 +310,10 @@ public class Util {
 
 	}
 
+	/**
+	 * 
+	 * Enregistre le contenu de la zone de saisie dans un nouveau fichier
+	 */
 	public static void saveInNewFile() {
 
 		JFileChooser chooser = new JFileChooser();
@@ -284,20 +341,27 @@ public class Util {
 					.getAbsolutePath();
 		}
 	}
-	
-	public static void saveInCurrentFile()
-	{
-		if (!TutoMaker.currentFileIsSaved)
-		{
+
+	/**
+	 * Enregistre le contenu de la zone de saisie dans le fichier courant. Si ce
+	 * dernier est inexistant, fabrique un nouveau fichier.
+	 */
+	public static void saveInCurrentFile() {
+		if (!TutoMaker.currentFileIsSaved) {
 			saveInNewFile();
 			return;
 		}
-		
+
 		writeFile(TutoMaker.currentFilePath, TutoMaker.mainFrame.getRedacText());
-		
-		
+
 	}
 
+	
+	/**
+	 * 
+	 * @param filename Chemin du fichier
+	 * @param text Texte à écrire
+	 */
 	public static void writeFile(String filename, String text) {
 		try {
 			// Create file
@@ -310,7 +374,8 @@ public class Util {
 			System.err.println("Error: " + e.getMessage());
 		}
 	}
-
+	
+	
 	public static void close(Closeable closeable) {
 		try {
 			closeable.close();
