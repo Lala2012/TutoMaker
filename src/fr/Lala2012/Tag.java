@@ -1,0 +1,28 @@
+package fr.Lala2012;
+
+public enum Tag {
+	
+	COLOR,
+	BOLD,
+	ITALIC,
+	UNDERLINE,
+	HEADER1,
+	HEADER2,
+	HEADER3,
+	HEADER4,
+	HEADER5,
+	HEADER6,
+	QUOTE,
+	PARAGRAPH,
+	CENTER,
+	SIZE,
+	IMG,
+	EMAIL,
+	URL,
+	YOUTUBE,
+	VIDEO,
+	CODE;
+	
+	
+
+}
