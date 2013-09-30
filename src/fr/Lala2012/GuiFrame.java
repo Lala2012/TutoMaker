@@ -49,9 +49,9 @@ public class GuiFrame extends JFrame {
 	private JPanel panelContentToolBar = new JPanel();
  	private GuiButton btnQuit = new GuiButton("Quitter", ButtonType.ERROR);
  	private JLabel insertionLabel = new JLabel("Formatter le texte : ");
- 	private GuiButton btnInsert = new GuiButton("InsÃ©rer", ButtonType.DEFAULT);
+ 	private GuiButton btnInsert = new GuiButton("Insérer", ButtonType.DEFAULT);
  	private GuiButton btnUpdate = new GuiButton("Actualiser", ButtonType.SUBMIT);
- 	 String[] tab = {"Couleur", "Gras", "Italique", "Titre 1", "Titre 2", "Titre 3", "Titre 4", "Titre 5", "Titre 6", "Citation", "Paragraphe", "CentrÃ©", "Taille", "Image", "E-m@il", "Lien", "Youtube", "VidÃ©o", "Code"};
+ 	 String[] tab = {"Couleur", "Gras", "Italique", "Titre 1", "Titre 2", "Titre 3", "Titre 4", "Titre 5", "Titre 6", "Citation", "Paragraphe", "Centré", "Taille", "Image", "E-m@il", "Lien", "Youtube", "Vidéo", "Code"};
  	private JComboBox comboFormat = new JComboBox(tab);
  	private GridLayout layout = new GridLayout(1, 5);
 	
@@ -127,8 +127,8 @@ public class GuiFrame extends JFrame {
 		panelView.setBackground(Color.ORANGE);
 		panelView.add(scrollView);
 
-		panelContent.addTab("AperÃ§u", imgView, panelView);
-		panelContent.addTab("RÃ©dac'", imgRedac, panelRedac);
+		panelContent.addTab("Aperçu", imgView, panelView);
+		panelContent.addTab("Rédac'", imgRedac, panelRedac);
 
 		panelMain.add(panelContent, BorderLayout.CENTER);
 
@@ -307,7 +307,9 @@ public class GuiFrame extends JFrame {
 		this.setIconImage(imgIcon.getImage());
 		this.setTitle("TutoMaker");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
 		this.setVisible(true);
+		
 
 
 

@@ -5,7 +5,6 @@ import java.awt.Color;
 import javax.swing.JButton;
 
 
-/** petit commentaire pour test */
 public class GuiButton extends JButton {
 	
 	private static final long serialVersionUID = 1L;
